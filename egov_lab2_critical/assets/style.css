@@ -1,0 +1,24 @@
+*{box-sizing:border-box}body{font-family:system-ui,sans-serif;margin:0;background:#f3f5f9;color:#1c2333}
+header{background:#4a1d1d;color:#fff;padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
+header.user{background:#12355b}
+header a{color:#ffd9d9;margin-left:16px;text-decoration:none}header.user a{color:#cfe3ff}
+main{max-width:980px;margin:24px auto;padding:0 16px}
+.card{background:#fff;border-radius:10px;padding:18px;margin-bottom:14px;box-shadow:0 1px 3px #0001;border-left:5px solid #94a3b8}
+.card.warning{border-color:#f59e0b}.card.critical{border-color:#dc2626}
+.badge{font-size:12px;padding:2px 8px;border-radius:10px;background:#e2e8f0;margin-right:6px;display:inline-block}
+.badge.warning{background:#fde68a}.badge.critical{background:#fecaca}.badge.target{background:#dbeafe}
+.meta{color:#64748b;font-size:13px}
+.profile{background:#fff;padding:14px 18px;border-radius:10px;margin-bottom:18px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+form.filter{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+input,select,textarea{padding:9px;border:1px solid #cbd5e1;border-radius:6px;font:inherit;width:100%}
+form.filter select{width:auto}
+.btn{background:#12355b;color:#fff;border:0;padding:9px 16px;border-radius:6px;cursor:pointer;text-decoration:none;display:inline-block;font-size:14px}
+.btn.red{background:#dc2626}.btn.gray{background:#64748b}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden}
+th,td{padding:10px;text-align:left;border-bottom:1px solid #e2e8f0;font-size:14px}th{background:#f3e3e3}
+label{display:block;margin:12px 0 4px;font-weight:600}
+.box{background:#fff;padding:24px;border-radius:10px;max-width:640px;margin:auto}
+.row{display:flex;gap:12px}.row>div{flex:1}
+.stats{display:flex;gap:12px;margin-bottom:18px}.stats div{background:#fff;padding:14px 20px;border-radius:10px;flex:1;text-align:center}
+.stats b{font-size:24px;display:block}.err{background:#fee2e2;padding:10px;border-radius:6px;margin-bottom:10px}
+.ok{background:#dcfce7;padding:10px;border-radius:6px;margin-bottom:10px}
