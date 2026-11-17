@@ -3,8 +3,7 @@ require 'config/db.php';
 $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     csrf_check();
-    $st = $pdo->prepare("SELECT * FROM users WHERE email=?");
-    $st->execute([trim($_POST['email'] ?? '')]);
+    $st = $pdo->prepare("SELECT * FROM users WHERE email=?"); $st->execute([trim($_POST['email'] ?? '')]);
     $u = $st->fetch();
     if ($u && password_verify($_POST['password'] ?? '', $u['password_hash'])) {
         session_regenerate_id(true);
@@ -13,13 +12,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     $error = 'Invalid email or password.';
 }
+head('Citizen Login', 'user', '<a href="register.php">Register</a><a href="index.php">Home</a>');
 ?>
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>Citizen Login</title><link rel="stylesheet" href="assets/style.css"></head><body>
-<header class="user"><strong>Critical Information Portal</strong><nav><a href="admin/login.php">Admin Login</a></nav></header>
-<main><div class="box"><h2>Citizen Login</h2>
+<div class="box">
+<?php if (isset($_GET['registered'])): ?><div class="ok">Account created. Please login.</div><?php endif; ?>
 <?php if ($error): ?><div class="err"><?= e($error) ?></div><?php endif; ?>
-<form method="post"><input type="hidden" name="csrf" value="<?= csrf_token() ?>">
+<form method="post"><?= csrf_field() ?>
 <label>Email</label><input type="email" name="email" required>
 <label>Password</label><input type="password" name="password" required>
-<p><button class="btn">Login</button> <a href="register.php">Create account</a></p></form>
-<p class="meta">Demo: ram@example.com / citizen123</p></div></main></body></html>
+<p><button class="btn green">Login</button></p></form></div>
+<?php foot();
